@@ -1,36 +1,27 @@
 function evaluateExpression(expression) {
-    // Remove any spaces from the expression
-    expression = expression.replace(/\s+/g, '');
+      expression = expression.replace(/\s+/g, '');
 
-    // Initialize a variable to store the result
-    let result = 0;
+       let result = 0;
 
-    // Initialize a variable to keep track of the current number
-    let currentNumber = '';
+      let currentNumber = '';
 
-    // Initialize a variable to keep track of the current operation (1 for addition, -1 for subtraction)
     let currentOperation = 1;
 
     for (let i = 0; i < expression.length; i++) {
         const char = expression[i];
 
         if (char === '+' || char === '-') {
-            // Apply the current number with the current operation
-            result += currentOperation * parseInt(currentNumber);
+                      result += currentOperation * parseInt(currentNumber);
 
-            // Update the current operation
-            currentOperation = (char === '+') ? 1 : -1;
+                      currentOperation = (char === '+') ? 1 : -1;
 
-            // Reset the current number
-            currentNumber = '';
+                       currentNumber = '';
         } else {
-            // Append the current character to the current number
-            currentNumber += char;
+                       currentNumber += char;
         }
     }
 
-    // Apply the last number with the current operation
-    result += currentOperation * parseInt(currentNumber);
+      result += currentOperation * parseInt(currentNumber);
 
     return result;
 }
